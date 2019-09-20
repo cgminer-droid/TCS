@@ -49,7 +49,7 @@ for cropped_image in images:
     imagem = cv2.bitwise_not(th3)#inverting the bits from 0 to 255 and vice versa
     kernel = np.ones((1,1),np.uint8)
     eroded_img = cv2.dilate(imagem,kernel,iterations = 1)#dilating the image to get sharper edges
-    text = pytesseract.image_to_string(cropped_image, config=config)#obtaining the text from the image through tesseract
+    text = pytesseract.image_to_string(eroded_img, config=config)#obtaining the text from the image through tesseract
     final_text.append(text)#store the images in an array
 
  for i in range(len(final_text)):
